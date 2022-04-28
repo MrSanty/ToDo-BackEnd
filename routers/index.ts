@@ -1,6 +1,10 @@
-import Express from "express";
-import userRouter from "./auth/loginRouter";
+import Express, { Router } from "express";
+import loginRouter from "./auth/loginRouter"; 
+
 
 export const apiRouter = ( app: Express.Application ) => {
-  app.use( "/api", userRouter );
+  const router = Router();
+  app.use( "/api", router );
+
+  router.use( "/login", loginRouter );
 }

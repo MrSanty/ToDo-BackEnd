@@ -1,9 +1,9 @@
 // imports for api router
 import { Request, Response, Router } from "express";
-const userRouter = Router();
+const loginRouter = Router();
 
-userRouter.get("/", ( _: Request , res: Response ) => {
+loginRouter.get("/", ( _: Request , res: Response ) => {
   res.json({ message: "Hello World" });
 });
 
-export default userRouter;
+export default loginRouter;
