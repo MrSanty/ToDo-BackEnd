@@ -2,7 +2,7 @@ import { Document } from 'mongoose';
 import { Request } from 'express';
 
 interface IUser extends Document {
-  id?: string;
+  id: string;
   username: string;
   password: string;
   email: string;
@@ -10,7 +10,8 @@ interface IUser extends Document {
   updatedAt?: Date;
 }
 
-// create a type  IUser omit the id, createdAt and updatedAt properties
+export type IUserToken = Omit<IUser, 'password' | 'createdAt' | 'updatedAt'>;
+
 export type IUserModelParams = Omit<IUser, 'id' | 'createdAt' | 'updatedAt'> & Request;
 
 export interface IUserModel extends IUser { }
