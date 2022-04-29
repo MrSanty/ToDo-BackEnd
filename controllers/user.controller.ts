@@ -14,13 +14,13 @@ export const registerUserController = async ( req: Request, res: Response ): Pro
   try {
     const result = await registerUserService( req.body, jwtSecret );
     const { token, name } = result;
-    return res.status(201).json({ message: 'User created', token, name });
+    return res.status(201).json({ message: 'Usuario creado', token, name });
   } catch ( error: ErrorConstructor | any ) {
     if ( error.message === 'Usuario ya existe' ) {
       return res.status(422).json({ message: 'Usuario ya existe' });
     }
     console.log(error);
-    return res.status(500).json({ message: 'Error en el servidor' });
+    return res.status(500).json({ message: 'Error en el servidor, por favor comunicarce con MrSanty' });
   }
 }
 
@@ -32,12 +32,12 @@ export const loginUserController = async ( req: Request, res: Response ): Promis
   try {
     const result = await loginUserService( req.body, jwtSecret );
     const { token, name } = result;
-    return res.status(201).json({ message: 'Login successful', token, name });
+    return res.status(201).json({ message: 'Inicio de seccion Exitoso', token, name });
   } catch ( error: ErrorConstructor | any ) {
     if ( error.message === 'Usuario o contraseña incorrectos' ) {
       return res.status(422).json({ message: 'Usuario o contraseña incorrectos' });
     }
 
-    return res.status(500).json({ message: 'Error en el servidor' });
+    return res.status(500).json({ message: 'Error en el servidor, por favor comunicarce con MrSanty' });
   }
 }

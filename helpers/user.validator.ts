@@ -11,12 +11,12 @@ export const authValidator = [
     .isEmail().withMessage('Email is not valid'),
 
   check('password')
-    .isLength({ min: 4 }).withMessage('Password must be at least 4 characters long')
-    .matches(passwordRegex).withMessage('Password must contain letters and numbers only'),
+    .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
+    .matches(passwordRegex).withMessage('La contraseña solo puede contener letras y números'),
 
   check('username')
-    .isLength({ min: 4 }).withMessage('Username must be at least 4 characters long')
-    .matches(usernameRegex).withMessage('Username must contain letters and numbers only')
+    .isLength({ min: 4 }).withMessage('El nombre de usuario debe tener al menos 4 caracteres')
+    .matches(usernameRegex).withMessage('El nombre de usuario solo puede contener letras y números'),
 ]
 
 export const loginValidator = [
@@ -24,6 +24,6 @@ export const loginValidator = [
     .isEmail().withMessage('Email is not valid'),
 
   check('password')
-    .isLength({ min: 4 }).withMessage('Password must be at least 4 characters long')
-    .matches(passwordRegex).withMessage('Password must contain letters and numbers only')
+    .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
+    .matches(passwordRegex).withMessage('La contraseña solo puede contener letras y números'),
 ]
