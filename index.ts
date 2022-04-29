@@ -5,15 +5,15 @@ import { connectDatabase } from './db/database'
 import { EnvConfig } from './types/types'
 
 // .env config
-dotenv.config()
+dotenv.config();
 
 // .env variables destructuring with type EnvConfig
 const { PORT, MONGO_USER, MONGO_PASS, MONGO_URL } = process.env as EnvConfig;
 
 // Express
-const app = Express()
-app.use( json() )
-apiRouter( app )
+const app = Express();
+app.use( json() );
+apiRouter( app );
 
 // make listen port with the route server
 app.listen( PORT, () => {

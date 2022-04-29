@@ -13,7 +13,6 @@ interface IUser {
 }
 
 export type IUserToken = Omit<IUser, 'password'>;
-export type IUserModelParams = IUser;
 
 export interface IUserModel extends IUser, Document {
   _id: string
@@ -24,3 +23,4 @@ export interface ResultAuth  {
   name: string
   token: string
 }
+

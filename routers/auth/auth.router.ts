@@ -1,13 +1,14 @@
 // imports for api router
 import { Router } from 'express'
-import { registerUserController, loginUserController } from '../../controllers/user.controller';
-import { authValidator, loginValidator } from '../../helpers/user.validator';
+import { registerController, loginController } from '../../controllers/auth.controller';
+import { authValidator, loginValidator } from '../../validator/auth.validator';
+
 const authRouter = Router()
 
-/* Register */
-authRouter.post( '/register', authValidator, registerUserController );
-
 /* Login */
-authRouter.post( '/login', loginValidator, loginUserController );
+authRouter.post( '/login', loginValidator, loginController );
+
+/* Register */
+authRouter.post( '/register', authValidator, registerController );
 
 export default authRouter;
