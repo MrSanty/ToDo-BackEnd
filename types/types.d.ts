@@ -6,6 +6,15 @@ export interface EnvConfig extends NodeJS.ProcessEnv {
   MONGO_URL: string
 }
 
+export interface TokenValidateRes {
+  id:       string;
+  email:    string;
+  username: string;
+  iat:      number;
+  exp:      number;
+}
+
+
 interface IUser {
   username: string
   password: string

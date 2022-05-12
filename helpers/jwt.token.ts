@@ -9,5 +9,9 @@ export const createToken = ( { id, email, username }: IUserModel, token: string 
     username: username
   } as IUserToken;
 
-  return jwt.sign( payload, token, { expiresIn: '1h' }  );
+  return jwt.sign( payload, token, { expiresIn: '15min' }  );
+}
+
+export const validateToken = ( token: string, secret: string ) => {
+  return jwt.verify( token, secret );
 }

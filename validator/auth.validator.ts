@@ -16,7 +16,7 @@ export const loginValidator = [
     .matches(passwordRegex).withMessage('La contraseña solo puede contener letras y números'),
 ]
 
-export const authValidator = [
+export const registerValidator = [
   check('email')
     .exists().withMessage('El email es requerido')
     .isEmail().withMessage('Email is not valid'),

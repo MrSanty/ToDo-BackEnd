@@ -1,8 +1,9 @@
 import { User } from '../models/user.model';
 import bcrypt from 'bcryptjs';
-import { createToken } from '../helpers/jwt.token';
-import { IUser, ResultAuth } from '../types/types';
+import { createToken, validateToken } from '../helpers/jwt.token';
+import { IUser, ResultAuth, TokenValidateRes } from '../types/types';
 import dotenv from 'dotenv';
+import { JwtPayload } from 'jsonwebtoken';
 
 // config dotenv
 dotenv.config();
@@ -37,4 +38,9 @@ export const registerService = async ( { username, email, password }: IUser ): P
   const name = result.username;
 
   return { name, token };
+}
+
+export const validate = async ( token: string ): Promise<string | JwtPayload > => {
+  const { username: name } = await validateToken( token, secretToken ) as TokenValidateRes ;
+  return name;
 }

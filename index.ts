@@ -1,8 +1,8 @@
-import Express, { json } from 'express'
-import dotenv from 'dotenv'
-import { apiRouter } from './routers'
-import { connectDatabase } from './db/database'
-import { EnvConfig } from './types/types'
+import Express, { json } from 'express';
+import dotenv from 'dotenv';
+import { apiRouter } from './routers';
+import { connectDatabase } from './db/database';
+import { EnvConfig } from './types/types';
 
 // .env config
 dotenv.config();
@@ -16,9 +16,7 @@ app.use( json() );
 apiRouter( app );
 
 // make listen port with the route server
-app.listen( PORT, () => {
-  console.log(`http://localhost:${PORT}/api`)
-})
+app.listen( PORT, () => console.log(`http://localhost:${PORT}/api`) );
 
 // Connect mongoose
 connectDatabase( MONGO_USER, MONGO_PASS, MONGO_URL )

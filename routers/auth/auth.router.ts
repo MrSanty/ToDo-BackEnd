@@ -1,7 +1,7 @@
 // imports for api router
 import { Router } from 'express'
-import { registerController, loginController } from '../../controllers/auth.controller';
-import { authValidator, loginValidator } from '../../validator/auth.validator';
+import { registerController, loginController, validateAuth } from '../../controllers/auth.controller';
+import { registerValidator, loginValidator } from '../../validator/auth.validator';
 
 const authRouter = Router()
 
@@ -9,6 +9,8 @@ const authRouter = Router()
 authRouter.post( '/login', loginValidator, loginController );
 
 /* Register */
-authRouter.post( '/register', authValidator, registerController );
+authRouter.post( '/register', registerValidator, registerController );
+
+authRouter.post( '/validate', validateAuth );
 
 export default authRouter;
